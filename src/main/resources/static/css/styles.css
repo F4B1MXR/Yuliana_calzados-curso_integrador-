@@ -1,0 +1,835 @@
+:root {
+    --negro: #1A1A1A;
+    --cafe-oscuro: #1d1714;
+    --cafe: #8B6B4F;
+    --dorado: #C9A86A;
+    --marfil: #FAF7F2;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--marfil);
+    color: var(--negro);
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.alert{
+    background-color: #e7dbd0;
+}
+
+#ofertas,
+#contacto {
+    scroll-margin-top: 90px;
+}
+
+img{
+    width: 150px;
+    height: auto;
+}
+
+.navbar {
+    background-color: #FAF7F2;
+    padding: 0px 30px;
+}
+
+.btn{
+    background-color: #3B2F2A;
+}
+.btn:hover{
+    background-color: #8B6B4F;
+}
+
+.navbar .nav-link {
+    color: black;
+    margin: 0 8px;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.navbar .nav-link:hover {
+    color: var(--cafe);
+}
+
+i {
+    font-size: 23px;
+    padding: 10px;
+}
+
+i:hover{
+    color: var(--cafe);
+}
+
+.carousel-item img {
+    height: 480px;
+    object-fit: cover;
+}
+
+.carousel-control-prev {
+    left: 0px;
+}
+
+.carousel-control-next {
+    right: 0px;
+}
+
+.carousel-item {
+    position: relative;
+}
+
+.texto-carrusel {
+    position: absolute;
+    top: 50%;
+    left: 11%;
+    transform: translateY(-50%);
+    max-width: 450px;
+    color: #1A1A1A;
+}
+
+.texto-carrusel h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 1.05;
+    margin-bottom: 20px;
+}
+
+.texto-carrusel p {
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.texto-carrusel .btn {
+    background-color: #8B6B4F;
+    border-color: #8B6B4F;
+    border-radius: 0;
+    padding: 12px 25px;
+}
+
+.texto-carrusel .btn:hover {
+    background-color: #3B2F2A;
+    border-color: #3B2F2A;
+}
+
+
+.texto-carrusel-2 {
+    position: absolute;
+    top: 50%;
+    left: 11%;
+    transform: translateY(-50%);
+    max-width: 450px;
+    color: #1A1A1A;
+}
+
+.texto-carrusel-2 h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 1.05;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.texto-carrusel-2 p {
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: white;
+}
+
+.texto-carrusel-2 .btn {
+    background-color: #8A1919;
+    border-color: #8A1919;
+    border-radius: 0;
+    padding: 12px 25px;
+}
+
+.texto-carrusel-2 .btn:hover {
+    background-color: #4D0909;
+    border-color: #4D0909;
+}
+
+.footer{
+    background-color: var(--cafe-oscuro);
+}
+
+/*  */
+
+.mapaWeb{
+    width: 100%;
+    height: 200px; 
+}
+
+.mapaWeb iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.mapaWeb {
+        height: 100%; 
+    }
+
+@media (max-width: 576px) {
+    .mapaWeb{
+        height: 100%;
+    }
+
+}
+
+/*COLECCIÓN*/
+/*BANNER*/
+.banner-coleccion {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.banner-coleccion img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.banner-coleccion::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.banner-coleccion-texto {
+    position: absolute;
+    z-index: 2;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+    color: white;
+
+    width: 90%;
+}
+
+.banner-coleccion-texto h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.banner-coleccion-texto p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+.categorias .filtro-categoria:not(.btn-dark) {
+    background-color: var(--marfil);
+    border-color: var(--cafe);
+    color: var(--cafe-oscuro);
+}
+
+.categorias .filtro-categoria:not(.btn-dark):hover {
+    background-color: #e7dbd0;
+    border-color: var(--cafe);
+    color: var(--cafe-oscuro);
+}
+
+.detalle-producto-modal {
+    overflow: hidden;
+    border-radius: 1.25rem;
+    background-color: var(--marfil);
+    box-shadow: 0 1.5rem 4rem rgba(29, 23, 20, 0.24);
+}
+
+.detalle-producto-modal-header {
+    min-height: 64px;
+    padding: 1.15rem 1.5rem 0.75rem;
+}
+
+.detalle-modal-marca {
+    color: var(--cafe);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.detalle-producto-imagen {
+    position: relative;
+    min-height: 300px;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 1rem;
+    background: linear-gradient(145deg, #eee4d8, #d8c6b5);
+}
+
+.detalle-producto-imagen img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    max-height: 520px;
+    object-fit: cover;
+    transition: transform 0.45s ease;
+}
+
+.detalle-producto-imagen:hover img {
+    transform: scale(1.035);
+}
+
+.detalle-producto-categoria {
+    color: var(--cafe);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.detalle-producto-titulo {
+    color: var(--cafe-oscuro);
+    font-size: clamp(1.6rem, 3vw, 2rem);
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.detalle-producto-descripcion {
+    color: #71655c;
+    line-height: 1.65;
+}
+
+.detalle-precio-panel {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    width: fit-content;
+    padding: 0.7rem 1rem;
+    border-left: 3px solid var(--dorado);
+    border-radius: 0 0.7rem 0.7rem 0;
+    background-color: #f0e9df;
+}
+
+.detalle-producto-precio {
+    color: var(--cafe-oscuro);
+    font-size: 1.65rem;
+    font-weight: 700;
+}
+
+.detalle-opcion .form-label {
+    color: var(--cafe-oscuro);
+    font-size: 0.92rem;
+}
+
+.detalle-opciones-variacion {
+    height: 44px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    scrollbar-width: thin;
+    scrollbar-color: #c9b9aa transparent;
+}
+
+.detalle-opciones-variacion .variant-choice {
+    flex: 0 0 auto;
+    height: 38px;
+}
+
+#disponibilidadVariacion {
+    display: block;
+    width: 100%;
+    height: 1.35rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.detalle-cantidad-control {
+    width: 142px;
+    overflow: hidden;
+    border: 1px solid #d6c9bd;
+    border-radius: 0.65rem;
+    background-color: #fff;
+}
+
+.detalle-cantidad-control .btn {
+    border: 0;
+    background-color: #f0e9df;
+    color: var(--cafe-oscuro);
+}
+
+.detalle-cantidad-control .btn:hover {
+    background-color: #e7dbd0;
+    color: var(--cafe-oscuro);
+}
+
+.detalle-cantidad-control .form-control {
+    border: 0;
+    box-shadow: none;
+    font-weight: 600;
+}
+
+.variant-choice {
+    min-width: 48px;
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.65rem;
+    background-color: #fff;
+    border-color: #d6c9bd;
+    color: var(--cafe-oscuro);
+    font-weight: 600;
+    transition: background-color 0.18s ease, border-color 0.18s ease,
+        color 0.18s ease, transform 0.18s ease;
+}
+
+.variant-choice:hover,
+.variant-choice:focus-visible {
+    transform: translateY(-1px);
+    background-color: #f0e9df;
+    border-color: var(--cafe);
+    color: var(--cafe-oscuro);
+}
+
+.variant-choice.btn-dark,
+.variant-choice.btn-dark:hover {
+    background-color: var(--cafe-oscuro);
+    border-color: var(--cafe-oscuro);
+    color: #fff;
+}
+
+.detalle-compra-panel {
+    padding: 0.9rem 1rem;
+    border: 1px solid #e4d9ce;
+    border-radius: 0.85rem;
+    background-color: #f6f1ea;
+}
+
+.detalle-agregar-btn {
+    min-height: 48px;
+    border: 0;
+    border-radius: 0.7rem;
+    background-color: var(--cafe-oscuro);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.detalle-agregar-btn:hover:not(:disabled) {
+    background-color: var(--cafe);
+}
+
+.detalle-agregar-btn:disabled {
+    background-color: #a99a8d;
+    opacity: 0.72;
+}
+
+@media (max-width: 991.98px) {
+    .detalle-producto-imagen,
+    .detalle-producto-imagen img {
+        min-height: 240px;
+        max-height: 340px;
+    }
+
+    .detalle-producto-imagen img {
+        object-position: center 45%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .detalle-producto-modal-header {
+        padding: 1rem 1rem 0.6rem;
+    }
+
+    .detalle-producto-imagen,
+    .detalle-producto-imagen img {
+        min-height: 210px;
+        max-height: 260px;
+    }
+
+    .detalle-compra-panel {
+        align-items: flex-start !important;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .texto-carrusel {
+        left: 5%;
+        max-width: 300px;
+    }
+
+    .texto-carrusel h1 {
+        font-size: 2rem;
+    }
+
+    .carousel-item img {
+        height: 300px;
+    }
+
+    .navbar .nav-link {
+        margin: 5px 0;
+        text-align: center;
+    }
+
+    .texto-carrusel-2 {
+        left: 5%;
+        max-width: 300px;
+    }
+
+    .texto-carrusel-2 h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 572px) {
+    .texto-carrusel {
+        position: static; 
+        transform: none;
+        max-width: 100%;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .texto-carrusel h1 {
+        font-size: 1.5rem;
+    }
+.carousel-item img {
+        height: 220px;
+    }
+
+    i {
+        font-size: 20px;
+        padding: 5px;
+    }
+
+    .texto-carrusel-2 {
+        position: static; 
+        transform: none;
+        max-width: 100%;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .texto-carrusel-2 h1 {
+        font-size: 1.5rem;
+        color: black;
+    }
+
+    .texto-carrusel-2 p {
+        color: black;
+    }
+}
+
+
+.precio-anterior {
+  text-decoration: line-through; 
+  color: #888888;               
+  font-size: 0.9rem;             
+  margin-right: 8px;             
+}
+
+.precio-actual {
+  font-weight: bold;
+  color: #462e2d;                
+  font-size: 1.2rem;
+}
+
+
+/* =========================================================
+   LOGIN - APARIENCIA DEL PROYECTO DE REFERENCIA
+   ========================================================= */
+
+.login-body {
+    background-color: var(--marfil);
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.login-body i {
+    font-size: 1rem;
+    padding: 0;
+}
+
+.login-body img {
+    width: auto;
+    height: auto;
+}
+
+.login-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 100vh;
+    width: 100%;
+}
+
+@media (min-width: 992px) {
+    .login-wrapper {
+        grid-template-columns: 1.05fr 0.95fr;
+    }
+}
+
+/* Panel visual */
+.login-visual {
+    position: relative;
+    align-items: center;
+    padding: 3rem;
+    background-image: url("../img/inicio_sesion.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.login-visual-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(29, 23, 20, 0.42) 0%,
+        rgba(29, 23, 20, 0.18) 42%,
+        rgba(29, 23, 20, 0.68) 100%
+    );
+}
+
+.login-visual-brand {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    z-index: 2;
+}
+
+.login-body .login-logo-badge {
+    width: 214px;
+    max-width: 55%;
+    height: auto;
+    object-fit: contain;
+    background-color: #FFFFFF;
+    padding: 0.6rem 1rem;
+    border-radius: 14px;
+    box-shadow: 0 0.8rem 2rem rgba(29, 23, 20, 0.28);
+}
+
+.login-body .login-logo {
+    width: 174px;
+    max-width: 70%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 0.85rem;
+}
+
+/* Frase decorativa */
+.login-slogan {
+    position: absolute;
+    left: 2rem;
+    right: 2rem;
+    bottom: 2.5rem;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.login-slogan p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: clamp(1.9rem, 3vw, 2.9rem);
+    line-height: 1.1;
+    letter-spacing: 0.03em;
+    margin: 0;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55);
+}
+
+.login-slogan-line {
+    width: 48px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.75);
+    flex: 0 0 auto;
+}
+
+/* Panel del formulario */
+.login-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.25rem;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 440px;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 1.2rem 3rem rgba(29, 23, 20, 0.1);
+}
+
+@media (min-width: 576px) {
+    .login-card {
+        padding: 2.5rem;
+    }
+}
+
+/* Etiqueta Acceso privado */
+.login-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background-color: #F3E6CC;
+    color: #8B6B4F;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    margin-bottom: 0.9rem;
+}
+
+/* Título */
+.login-card h2 {
+    color: #1A1A1A;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Campos */
+.login-body .form-label {
+    color: #1A1A1A;
+    font-size: 0.9rem;
+}
+
+.login-body .input-group-text {
+    background-color: #F8F5F0;
+    color: #8B6B4F;
+    border-color: #DEE2E6;
+}
+
+.login-body .form-control {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    border-color: #DEE2E6;
+}
+
+.login-body .form-control:focus {
+    border-color: #8B6B4F;
+    box-shadow: 0 0 0 0.2rem rgba(139, 107, 79, 0.16);
+}
+
+/* Botón Entrar */
+.login-body .login-submit {
+    background-color: #1D1714;
+    border-color: #1D1714;
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.login-body .login-submit:hover {
+    background-color: #8B6B4F;
+    border-color: #8B6B4F;
+    color: #FFFFFF;
+}
+
+/* Botón mostrar contraseña */
+.login-body .btn-toggle-password {
+    background-color: #FFFFFF;
+    color: #6C757D;
+    border-color: #DEE2E6;
+}
+
+.login-body .btn-toggle-password:hover {
+    background-color: #F8F9FA;
+    color: #1A1A1A;
+}
+
+/* Enlace volver a la tienda */
+.login-body a {
+    color: #6C757D;
+    text-decoration: none;
+}
+
+.login-body a:hover {
+    color: #1A1A1A;
+}
+
+/* Mensajes de validación */
+.login-body .alert {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.875rem;
+}
+
+.login-body .alert i {
+    flex-shrink: 0;
+}
+
+/* Adaptación a celulares */
+@media (max-width: 575.98px) {
+    .login-card {
+        padding: 1.5rem;
+    }
+
+    .login-panel {
+        padding: 1.25rem 1rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .login-visual {
+        min-height: 100vh;
+    }
+}
+
+/* Imagen grande del panel visual del login */
+.login-body .login-visual .login-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Contenedor de la imagen grande */
+.login-body .login-visual-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Logo pequeño de la parte superior */
+.login-body .login-logo-badge {
+    width: 214px;
+    max-width: 55%;
+    height: auto;
+    object-fit: contain;
+}
+
+#btnExportarPDF:hover {
+    background-color: #8B6B4F;
+    border-color: #8B6B4F;
+    color: #fff;
+}
+
+.btn-cuenta,
+.btn-cuenta:hover,
+.btn-cuenta:focus,
+.btn-cuenta:active,
+.btn-cuenta.show {
+    background-color: rgba(59, 17, 0, 0.774);
+    color: #fff;
+    text-decoration: none;
+    box-shadow: none;
+}
+
+.dropdown-item:focus,
+.dropdown-item:active {
+    background-color: transparent;
+    color: inherit;
+    box-shadow: none;
+}

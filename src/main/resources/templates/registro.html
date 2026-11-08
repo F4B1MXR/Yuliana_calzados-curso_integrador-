@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crear cuenta | Yuliana Calzados</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+
+<body class="login-body">
+  <main class="login-wrapper">
+    <section class="login-visual d-none d-lg-flex">
+      <div class="login-visual-overlay">
+        <img class="login-img" th:src="@{/img/login_imagen.jpeg}" alt="Yuliana Calzados">
+      </div>
+      <div class="login-visual-brand">
+        <img th:src="@{/img/logo.jpeg}" alt="Yuliana Calzados" class="login-logo-badge">
+      </div>
+      <div class="login-slogan">
+        <span class="login-slogan-line"></span>
+        <p>cada paso cuenta una historia</p>
+        <span class="login-slogan-line"></span>
+      </div>
+    </section>
+
+    <section class="login-panel">
+      <div class="login-card">
+        <div class="text-center mb-4">
+          <img th:src="@{/img/logo.jpeg}" alt="Yuliana Calzados" class="login-logo d-lg-none mx-auto">
+          <span class="login-badge">
+            <i class="bi bi-person-plus"></i> Nueva cuenta
+          </span>
+          <h2 class="h3 fw-bold mb-1">Crear cuenta</h2>
+          <p class="text-secondary mb-0">Regístrate para comprar en nuestra tienda.</p>
+        </div>
+
+        <form th:action="@{/registro}" th:object="${registro}"
+              method="post" class="needs-validation" novalidate>
+          <div class="mb-3">
+            <label for="correo" class="form-label fw-semibold">Correo electrónico</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+              <input type="email" class="form-control" id="correo" th:field="*{correo}"
+                     placeholder="nombre@correo.com" autocomplete="email" maxlength="100" required>
+            </div>
+            <div class="text-danger small mt-1" th:errors="*{correo}"></div>
+          </div>
+
+          <div class="mb-3">
+            <label for="contrasena" class="form-label fw-semibold">Contraseña</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-key"></i></span>
+              <input type="password" class="form-control" id="contrasena" th:field="*{contrasena}"
+                     placeholder="Mínimo 8 caracteres" autocomplete="new-password" minlength="8" maxlength="72" required>
+              <button class="btn btn-outline-secondary btn-toggle-password" type="button"
+                      data-target="contrasena" aria-label="Mostrar contraseña">
+                <i class="bi bi-eye"></i>
+              </button>
+            </div>
+            <div class="text-danger small mt-1" th:errors="*{contrasena}"></div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-6 mb-3">
+              <label for="nombre" class="form-label fw-semibold">Nombre</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-person"></i></span>
+                <input type="text" class="form-control" id="nombre" th:field="*{nombre}"
+                       autocomplete="given-name" maxlength="100" required>
+              </div>
+              <div class="text-danger small mt-1" th:errors="*{nombre}"></div>
+            </div>
+
+            <div class="col-sm-6 mb-3">
+              <label for="apellido" class="form-label fw-semibold">Apellido</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-person"></i></span>
+                <input type="text" class="form-control" id="apellido" th:field="*{apellido}"
+                       autocomplete="family-name" maxlength="100" required>
+              </div>
+              <div class="text-danger small mt-1" th:errors="*{apellido}"></div>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label for="telefono" class="form-label fw-semibold">Teléfono</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+              <input type="tel" class="form-control" id="telefono" th:field="*{telefono}"
+                     placeholder="987654321" autocomplete="tel" inputmode="numeric"
+                     pattern="[0-9]{9}" maxlength="9" required>
+            </div>
+            <div class="form-text">Ingresa los 9 dígitos de tu teléfono.</div>
+            <div class="text-danger small mt-1" th:errors="*{telefono}"></div>
+          </div>
+
+          <button type="submit" class="btn btn-dark w-100 py-2 login-submit">
+            <i class="bi bi-person-check me-1"></i> Crear cuenta
+          </button>
+        </form>
+
+        <div class="text-center mt-4">
+          <a th:href="@{/login}" class="link-secondary small">
+            <i class="bi bi-arrow-left"></i> Ya tengo una cuenta
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+          crossorigin="anonymous"></script>
+  <script th:src="@{/js/admin.js}"></script>
+</body>
+
+</html>

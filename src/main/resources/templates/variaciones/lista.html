@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inventario de variaciones | Yuliana Calzados</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+</head>
+
+<body class="admin-body">
+
+    <div class="admin-shell">
+
+        <div th:replace="~{fragmentos/admin-sidebar :: sidebar('variaciones')}"></div>
+
+        <div class="admin-main">
+
+            <div th:replace="~{fragmentos/admin-topbar :: topbar('Variaciones', 'Administra tallas, colores y existencias')}"></div>
+
+            <main class="admin-content">
+
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+                    <div>
+                        <p class="admin-eyebrow text-uppercase small mb-2">INVENTARIO</p>
+                        <h1 class="h3 fw-bold mb-1">Variaciones de productos</h1>
+                        <p class="text-secondary mb-0">
+                            Administra las tallas, colores y existencias de cada modelo.
+                        </p>
+                    </div>
+
+                    <a th:href="@{/variaciones/nuevo}" class="btn btn-dark">
+                        <i class="bi bi-plus-lg me-1"></i>
+                        Registrar variación
+                    </a>
+                </div>
+
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body d-flex align-items-center gap-3 p-4 border-bottom">
+                        <span class="stat-icon stat-icon-brown">
+                            <i class="bi bi-tags"></i>
+                        </span>
+                        <div>
+                            <h2 class="h5 fw-bold mb-1">Variaciones registradas</h2>
+                            <p class="text-secondary small mb-0">
+                                Consulta y actualiza las opciones disponibles de cada producto.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle mb-0">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Modelo</th>
+                                        <th>Talla</th>
+                                        <th>Color</th>
+                                        <th>Stock</th>
+                                        <th class="text-center">Acciones</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr th:each="variacion : ${variaciones}">
+                                        <td class="text-secondary" th:text="${variacion.idVariacion}"></td>
+                                        <td class="fw-semibold" th:text="${variacion.producto.modeloProd}"></td>
+                                        <td>
+                                            <span class="badge rounded-pill text-bg-light border"
+                                                  th:text="${variacion.talla}"></span>
+                                        </td>
+                                        <td th:text="${variacion.colorPv}"></td>
+                                        <td>
+                                            <span th:if="${variacion.stock <= 5}"
+                                                  class="badge rounded-pill text-bg-danger"
+                                                  th:text="${variacion.stock}"></span>
+                                            <span th:if="${variacion.stock > 5}"
+                                                  class="badge rounded-pill text-bg-success"
+                                                  th:text="${variacion.stock}"></span>
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="d-flex justify-content-center gap-2">
+                                                <a th:href="@{/variaciones/editar/{id}(id=${variacion.idVariacion})}"
+                                                   class="btn btn-sm btn-outline-dark"
+                                                   title="Editar variación"
+                                                   aria-label="Editar variación">
+                                                    <i class="bi bi-pencil"></i>
+                                                </a>
+
+                                                <form th:action="@{/variaciones/eliminar/{id}(id=${variacion.idVariacion})}"
+                                                      method="post"
+                                                      onsubmit="return confirm('¿Deseas eliminar esta variación?');">
+                                                    <button type="submit"
+                                                            class="btn btn-sm btn-outline-danger"
+                                                            title="Eliminar variación"
+                                                            aria-label="Eliminar variación">
+                                                        <i class="bi bi-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr th:if="${#lists.isEmpty(variaciones)}">
+                                        <td colspan="6" class="text-center py-5">
+                                            <i class="bi bi-tags fs-1 text-secondary"></i>
+                                            <h3 class="h5 fw-bold mt-3">No hay variaciones registradas</h3>
+                                            <p class="text-secondary mb-3">
+                                                Registra una talla y un color para comenzar a controlar el stock.
+                                            </p>
+                                            <a th:href="@{/variaciones/nuevo}" class="btn btn-dark">
+                                                <i class="bi bi-plus-lg me-1"></i>
+                                                Registrar variación
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<div th:fragment="modal-detalle" class="modal fade" id="modalDetalle" tabindex="-1"
+    aria-labelledby="modalDetalleLabel" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content detalle-producto-modal border-0">
+            <div class="modal-header detalle-producto-modal-header border-0">
+                <span class="detalle-modal-marca">
+                    <i class="bi bi-stars me-2"></i>Yuliana Calzados
+                </span>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+
+            <div class="modal-body p-3 p-lg-4 pt-0">
+                <div class="row g-4 g-lg-5 align-items-stretch">
+                    <div class="col-12 col-lg-5">
+                        <div class="detalle-producto-imagen">
+                            <img id="detalleProductoImagen"
+                                src="/img/banner-coleccion.png"
+                                alt="Imagen del producto">
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-7">
+                        <div class="h-100 d-flex flex-column">
+                            <span id="detalleProductoCategoria" class="detalle-producto-categoria mb-2"></span>
+                            <h2 class="detalle-producto-titulo mb-2" id="modalDetalleLabel">Detalle del producto</h2>
+                            <p class="detalle-producto-descripcion mb-3" id="detalleProductoDescripcion">
+                                Consulta los detalles y opciones disponibles.
+                            </p>
+                            <div class="detalle-precio-panel mb-4">
+                                <span class="small text-secondary">Precio</span>
+                                <p class="detalle-producto-precio mb-0" id="detalleProductoPrecio"></p>
+                            </div>
+
+                            <div class="detalle-opcion mb-3">
+                                <span class="form-label fw-semibold d-block mb-2">
+                                    Talla <span class="text-danger">*</span>
+                                </span>
+                                <div id="opcionesTalla" class="detalle-opciones-variacion d-flex gap-2" role="group"
+                                    aria-label="Selecciona una talla"></div>
+                                <select class="visually-hidden" id="selectTalla" tabindex="-1" aria-hidden="true">
+                                    <option value="">Elige una talla</option>
+                                </select>
+                            </div>
+
+                            <div class="detalle-opcion mb-3">
+                                <span class="form-label fw-semibold d-block mb-2">
+                                    Color <span class="text-danger">*</span>
+                                </span>
+                                <div id="opcionesColor" class="detalle-opciones-variacion d-flex gap-2" role="group"
+                                    aria-label="Selecciona un color"></div>
+                                <select class="visually-hidden" id="selectColor" tabindex="-1" aria-hidden="true">
+                                    <option value="">Elige un color</option>
+                                </select>
+                            </div>
+
+                            <div class="detalle-compra-panel d-flex align-items-center justify-content-between flex-wrap gap-3 mt-auto">
+                                <div>
+                                    <span class="form-label fw-semibold d-block mb-2">Cantidad</span>
+                                    <div class="input-group detalle-cantidad-control">
+                                        <button type="button" class="btn btn-outline-secondary"
+                                            id="restarCantidadProducto" aria-label="Disminuir cantidad">−</button>
+                                        <input type="number" class="form-control text-center" id="cantidadProducto"
+                                            value="1" min="1" max="1" inputmode="numeric" aria-label="Cantidad">
+                                        <button type="button" class="btn btn-outline-secondary"
+                                            id="sumarCantidadProducto" aria-label="Aumentar cantidad">+</button>
+                                    </div>
+                                </div>
+                                <span id="disponibilidadVariacion" class="small text-secondary" aria-live="polite">
+                                    Elige una talla y un color.
+                                </span>
+                            </div>
+
+                            <div class="d-flex align-items-center gap-3 mt-4">
+                                <button type="button" class="btn btn-dark detalle-agregar-btn flex-grow-1"
+                                    id="btnAgregarCarrito" disabled>
+                                    <i class="bi bi-bag-plus me-2"></i>Añadir al carrito
+                                </button>
+                                <small id="mensajeCarrito" class="text-success"></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

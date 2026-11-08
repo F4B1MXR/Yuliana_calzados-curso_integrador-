@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cerrar caja | Yuliana Calzados</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+</head>
+
+<body class="admin-body">
+
+    <div class="admin-shell">
+
+        <div th:replace="~{fragmentos/vend-sidebar :: sidebar('historial')}"></div>
+
+        <div class="admin-main">
+
+            <div th:replace="~{fragmentos/vend-topbar :: topbar('Cerrar caja', 'Registra el monto contado al finalizar el turno')}"></div>
+
+            <main class="admin-content">
+
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <a th:href="@{/cajas}" class="link-secondary text-decoration-none">
+                        <i class="bi bi-arrow-left me-1"></i>
+                        Volver a cajas
+                    </a>
+                </div>
+
+                <div class="mb-4">
+                    <p class="admin-eyebrow text-uppercase small mb-2">CIERRE DE TURNO</p>
+                    <h1 class="h3 fw-bold mb-1">Cerrar caja</h1>
+                    <p class="text-secondary mb-0">
+                        Revisa los datos de la caja e ingresa el monto contado al finalizar el turno.
+                    </p>
+                </div>
+
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4 p-lg-5">
+
+                        <div class="d-flex align-items-center gap-3 mb-4 pb-3 border-bottom">
+                            <span class="stat-icon stat-icon-brown">
+                                <i class="bi bi-cash-stack"></i>
+                            </span>
+                            <div>
+                                <h2 class="h5 fw-bold mb-1">Resumen de caja</h2>
+                                <p class="text-secondary small mb-0">
+                                    Confirma el efectivo disponible antes de cerrar.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-warning d-flex align-items-start gap-2" role="alert">
+                            <i class="bi bi-exclamation-triangle-fill mt-1"></i>
+                            <span>Una vez cerrada, esta caja no podrá volver a cerrarse.</span>
+                        </div>
+
+                        <div class="row g-4 mb-4">
+                            <div class="col-12 col-md-6">
+                                <label for="idCaja" class="form-label fw-semibold">Número de caja</label>
+                                <input type="text"
+                                       id="idCaja"
+                                       class="form-control bg-light"
+                                       th:value="${caja.idCaja}"
+                                       readonly>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="montoInicialCaja" class="form-label fw-semibold">Monto inicial (S/)</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">S/</span>
+                                    <input type="text"
+                                           id="montoInicialCaja"
+                                           class="form-control bg-light"
+                                           th:value="${caja.montoInicialCaja}"
+                                           readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form th:action="@{/cajas/cerrar/{id}(id=${caja.idCaja})}" method="post">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <label for="montoFinalCaja" class="form-label fw-semibold">
+                                        Monto final contado (S/) <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">S/</span>
+                                        <input type="number"
+                                               id="montoFinalCaja"
+                                               name="montoFinalCaja"
+                                               class="form-control"
+                                               min="0"
+                                               step="0.01"
+                                               placeholder="0.00"
+                                               required>
+                                    </div>
+                                    <div class="form-text">
+                                        Ingresa el total contado al finalizar el turno.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex flex-wrap justify-content-end gap-2 mt-4 pt-4 border-top">
+                                <a th:href="@{/cajas}" class="btn btn-outline-secondary">
+                                    Cancelar
+                                </a>
+                                <button type="submit" class="btn btn-dark">
+                                    <i class="bi bi-lock me-1"></i>
+                                    Confirmar cierre
+                                </button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Categorías | Yuliana Calzados</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+</head>
+
+<body class="admin-body">
+
+    <div class="admin-shell">
+
+        <div th:replace="~{fragmentos/admin-sidebar :: sidebar('categorias')}"></div>
+
+        <div class="admin-main">
+
+            <div th:replace="~{fragmentos/admin-topbar :: topbar('Categorías', 'Organiza los productos por tipo de calzado')}"></div>
+
+            <main class="admin-content">
+
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+                    <div>
+                        <p class="admin-eyebrow text-uppercase small mb-2">CATÁLOGO</p>
+                        <h1 class="h3 fw-bold mb-1">Categorías de calzado</h1>
+                        <p class="text-secondary mb-0">
+                            Organiza los productos de la tienda por tipo de calzado.
+                        </p>
+                    </div>
+
+                    <a th:href="@{/categorias/nuevo}" class="btn btn-dark">
+                        <i class="bi bi-plus-lg me-1"></i>
+                        Nueva categoría
+                    </a>
+                </div>
+
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body d-flex align-items-center gap-3 p-4 border-bottom">
+                        <span class="stat-icon stat-icon-brown">
+                            <i class="bi bi-tags"></i>
+                        </span>
+                        <div>
+                            <h2 class="h5 fw-bold mb-1">Categorías registradas</h2>
+                            <p class="text-secondary small mb-0">
+                                Consulta y administra las categorías de tu catálogo.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle mb-0">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nombre</th>
+                                        <th>Descripción</th>
+                                        <th class="text-center">Acciones</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr th:each="categoria : ${categorias}">
+                                        <td class="text-secondary" th:text="${categoria.idCategoria}"></td>
+                                        <td class="fw-semibold" th:text="${categoria.nombreCat}"></td>
+                                        <td th:text="${categoria.descripcionCat}"></td>
+                                        <td class="text-center">
+                                            <div class="d-flex justify-content-center gap-2">
+                                                <a th:href="@{/categorias/editar/{id}(id=${categoria.idCategoria})}"
+                                                   class="btn btn-sm btn-outline-dark"
+                                                   title="Editar categoría"
+                                                   aria-label="Editar categoría">
+                                                    <i class="bi bi-pencil"></i>
+                                                </a>
+
+                                                <form th:action="@{/categorias/eliminar/{id}(id=${categoria.idCategoria})}"
+                                                      method="post"
+                                                      onsubmit="return confirm('¿Eliminar esta categoría?');">
+                                                    <button type="submit"
+                                                            class="btn btn-sm btn-outline-danger"
+                                                            title="Eliminar categoría"
+                                                            aria-label="Eliminar categoría">
+                                                        <i class="bi bi-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr th:if="${#lists.isEmpty(categorias)}">
+                                        <td colspan="4" class="text-center py-5">
+                                            <i class="bi bi-tags fs-1 text-secondary"></i>
+                                            <h3 class="h5 fw-bold mt-3">No hay categorías registradas</h3>
+                                            <p class="text-secondary mb-3">
+                                                Registra tu primera categoría para organizar el catálogo.
+                                            </p>
+                                            <a th:href="@{/categorias/nuevo}" class="btn btn-dark">
+                                                <i class="bi bi-plus-lg me-1"></i>
+                                                Nueva categoría
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
